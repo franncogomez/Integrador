@@ -1,19 +1,22 @@
 package avatar
 
-import(
+import (
 	"os"
-    identigo "github.com/Hackdoor-io/identigo"
+	"strings"
+    "crypto/md5"
+	identigo "github.com/Hackdoor-io/identigo"
 )
 
-type GeneratoOne struct{}
+type GeneratorOne struct{}
 
-(a *GeneratoOne) GenerateImg (encodeInformation bytes[]) error{
-	str := encodeIndormation bytes[]
+func (a *GeneratorOne) GenerateImg (encodeInformation []byte) error{
+	str,_ := EncodeInformation()
     img := identigo.GenerateFromString(str, 256, 256)
 
     if err ==nil{
          file, _ := os.Create(str + ".png")
         png.Encode(file, img)
         return err nil
-    }else{return panic{"No se ha podido generar la imágen"}}
+    }else{
+        return panic{"No se ha podido generar la imágen"}}
 }
